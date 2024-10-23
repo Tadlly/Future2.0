@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Teste Vocacional - Feira das Profissões</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style-teste-vocacional.css"> <!-- CSS específico para a página -->
+</head>
+<style>
+    #voltarBtn {
+    position: fixed;       /* Fixa o botão na tela */
+    top: 10px;             /* Distância do topo da tela */
+    left: 10px;            /* Distância da borda esquerda da tela */
+    padding: 5px 10px;     /* Tamanho do botão, com padding reduzido */
+    background-color: #013220; /* Verde suave */
+    color: white;
+    border: none;
+    border-radius: 50%;    /* Deixa o botão redondo */
+    font-weight: bold;
+    font-size: 14px;       /* Tamanho de fonte ajustado */
+    cursor: pointer;
+    z-index: 1000;         /* Garante que o botão ficará acima de outros elementos */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efeito de sombra */
+    width: 200px;           /* Largura ajustada para um botão menor */
+    height: 40px;          /* Altura ajustada para garantir o formato circular */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center;     /* Centraliza o conteúdo verticalmente */
+    font-size: 20px;
+}
+/* Efeito de hover */
+#voltarBtn:hover {
+    background-color: #013220;  /* Cor do fundo mais escura */
+    transform: translateY(-2px);  /* Levanta o botão levemente */
+}
+/* Estilizando os botões de seleção (radio buttons) */
+input[type="radio"] {
+    display: none; /* Esconde o botão original */
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+}
+
+/* Efeito ao passar o mouse */
+input[type="radio"] + label:hover {
+    background-color: #e6f7f0;
+    border-color: #007B5F;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para quando o botão está selecionado */
+input[type="radio"]:checked + label {
+    background-color: #007B5F;
+    color: white;
+    border-color: #005f4d;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="inicio.html">
+                <img src="futture.jpg" alt="Descrição da Imagem">
+            </a>
+        </div>
+        <button id="voltarBtn" class="btn-back" onclick="voltar()">⬅ Voltar ao início</button>
+        <h1>Teste Vocacional</h1>
+        <p>Descubra qual é a melhor carreira para você!</p>
+    </header>
+
+    <div class="container">
+        <h2>Responda ao nosso teste vocacional para descobrir suas aptidões profissionais</h2>
+        <form id="teste-vocacional">
+            <div class="question">
+                <h3>1. Você prefere trabalhar com...</h3>
+                <label><input type="radio" name="questao1" value="Tecnologia"> Tecnologia</label><br>
+                <label><input type="radio" name="questao1" value="Ciências Humanas"> Ciências Humanas</label><br>
+                <label><input type="radio" name="questao1" value="Saúde"> Saúde</label><br>
+                <label><input type="radio" name="questao1" value="Artes"> Artes</label><br>
+                <label><input type="radio" name="questao1" value="Engenharia"> Engenharia</label><br>
+                <label><input type="radio" name="questao1" value="Administração"> Administração</label>
+            </div>
+
+            <div class="question">
+                <h3>2. Você se considera uma pessoa...</h3>
+                <label><input type="radio" name="questao2" value="Criativa"> Criativa</label><br>
+                <label><input type="radio" name="questao2" value="Organizada"> Organizada</label><br>
+                <label><input type="radio" name="questao2" value="Comunicativa"> Comunicativa</label><br>
+                <label><input type="radio" name="questao2" value="Prática"> Prática</label><br>
+                <label><input type="radio" name="questao2" value="Líder"> Líder</label><br>
+                <label><input type="radio" name="questao2" value="Analítica"> Analítica</label>
+            </div>
+
+            <div class="question">
+                <h3>3. O que mais te motiva?</h3>
+                <label><input type="radio" name="questao3" value="Inovação"> Inovação</label><br>
+                <label><input type="radio" name="questao3" value="Estabilidade"> Estabilidade</label><br>
+                <label><input type="radio" name="questao3" value="Trabalhar com pessoas"> Trabalhar com pessoas</label><br>
+                <label><input type="radio" name="questao3" value="Desafios"> Desafios</label><br>
+                <label><input type="radio" name="questao3" value="Impactar o mundo"> Impactar o mundo</label><br>
+                <label><input type="radio" name="questao3" value="Alta remuneração"> Alta remuneração</label>
+            </div>
+
+            <div class="question">
+                <h3>4. Você prefere trabalhar em...</h3>
+                <label><input type="radio" name="questao4" value="Escritório"> Escritório</label><br>
+                <label><input type="radio" name="questao4" value="Ao ar livre"> Ao ar livre</label><br>
+                <label><input type="radio" name="questao4" value="Ambiente de laboratório"> Ambiente de laboratório</label><br>
+                <label><input type="radio" name="questao4" value="Locais criativos"> Locais criativos</label><br>
+                <label><input type="radio" name="questao4" value="Indústria"> Indústria</label><br>
+                <label><input type="radio" name="questao4" value="Ambiente corporativo"> Ambiente corporativo</label>
+            </div>
+<br>
+            <div class="submit-btn">
+                <button type="submit">Ver Resultado</button>
+            </div>
+        </form>
+
+        <div id="resultado" style="display:none;">
+            <h2>Seu Resultado</h2>
+            <p id="mensagem-resultado"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Feira das Profissões. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script-teste-vocacional.js"></script> <!-- Script para o teste vocacional -->
+</body>
+</html>
